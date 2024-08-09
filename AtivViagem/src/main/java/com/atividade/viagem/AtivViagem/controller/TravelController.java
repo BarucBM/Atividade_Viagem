@@ -77,4 +77,12 @@ public class TravelController {
 
         return ResponseEntity.status(HttpStatus.OK).body(destination.getTravels());
     }
+
+    // Get que retorna as viagens que começaram no ano indicado
+    @GetMapping("/year/{year}")
+    public ResponseEntity<List<TravelModel>> getTravelByStartYear(@PathVariable(value = "year")int year){
+        List<TravelModel> travel = travelRepository.findAllByAno(year);
+
+        return ResponseEntity.status(HttpStatus.OK).body(travel);
+    }
 }

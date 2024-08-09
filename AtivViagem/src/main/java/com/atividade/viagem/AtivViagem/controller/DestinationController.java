@@ -63,6 +63,7 @@ public class DestinationController {
             return ResponseEntity.status(HttpStatus.OK).body("Destinations deleted!");
     }
 
+    // Get que retorna os destinos que possuem o nome indicado
     @GetMapping("/name/{name}")
     public ResponseEntity<List<DestinationModel>> getDestinationByName (@PathVariable(value = "name") String name){
        List<DestinationModel> destination = destinationRepository.findByCountry(name);

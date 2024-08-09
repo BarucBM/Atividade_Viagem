@@ -29,9 +29,11 @@ public class TravelModel implements Serializable {
     private String title;
 
     @JsonFormat(pattern="yyyy-MM-dd")
+    @Column(name = "startdate")
     private LocalDate startDate;
 
     @JsonFormat(pattern="yyyy-MM-dd")
+    @Column(name = "enddate")
     private LocalDate endDate;
 
     @JsonIgnore
