@@ -1,5 +1,7 @@
 package com.atividade.viagem.AtivViagem.model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -27,6 +29,7 @@ public class DestinationModel implements Serializable {
 
     private String country;
 
-    @OneToMany
+
+    @OneToMany(mappedBy = "destination")
     private List<TravelModel> travels;
 }

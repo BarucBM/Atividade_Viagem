@@ -1,13 +1,13 @@
 package com.atividade.viagem.AtivViagem.model;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import java.io.Serializable;
+import java.time.LocalDate;
 import java.util.Date;
 import java.util.List;
 import java.util.UUID;
@@ -18,6 +18,7 @@ import java.util.UUID;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
+@Data
 public class TravelModel implements Serializable {
     private static final long serialVersionUID = 1;
 
@@ -27,10 +28,13 @@ public class TravelModel implements Serializable {
 
     private String title;
 
-    private Date startDate;
+    @JsonFormat(pattern="yyyy-MM-dd")
+    private LocalDate startDate;
 
-    private Date endDate;
+    @JsonFormat(pattern="yyyy-MM-dd")
+    private LocalDate endDate;
 
+    @JsonIgnore
     @ManyToOne
     private DestinationModel destination;
 

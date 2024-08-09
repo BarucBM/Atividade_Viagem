@@ -2,6 +2,7 @@ package com.atividade.viagem.AtivViagem.controller;
 
 
 import com.atividade.viagem.AtivViagem.dtos.DestinationDto;
+import com.atividade.viagem.AtivViagem.dtos.TravelDto;
 import com.atividade.viagem.AtivViagem.model.DestinationModel;
 import com.atividade.viagem.AtivViagem.repositories.DestinationRepository;
 import com.atividade.viagem.AtivViagem.repositories.TravelRepository;
@@ -22,6 +23,9 @@ public class DestinationController {
 
     @Autowired
     DestinationRepository destinationRepository;
+
+    @Autowired
+    TravelRepository travelRepository;
 
     @GetMapping
     public ResponseEntity<List<DestinationModel>> getAllDestinations(){
