@@ -59,9 +59,17 @@ public class DestinationController {
     public  ResponseEntity<String> deleteDestination(@PathVariable(value="id") Long id){
         DestinationModel destination = destinationRepository.findById(id)
                 .orElseThrow(() -> new RuntimeException("Destination not found!"));
-
             destinationRepository.deleteById(destination.getId());
             return ResponseEntity.status(HttpStatus.OK).body("Destinations deleted!");
+    }
+
+    @GetMapping("/name/{name}")
+    public ResponseEntity<List<DestinationModel>> getDestinationByName (@PathVariable(value = "name") String name){
+       List<DestinationModel> destination = destinationRepository.findByCountry(name);
+
+           return ResponseEntity.status(HttpStatus.OK).body(destination);
+
+
 
     }
 
